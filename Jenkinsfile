@@ -13,9 +13,8 @@ pipeline {
             steps {
                 // Set up a Python virtual environment
                 sh '''
-                    sudo apt install python3.11-venv
-                    python3 -m venv venv
-                    source venv/bin/activate
+                    
+                   echo "Set up a Python virtual environment"
                 '''
             }
         }
@@ -24,8 +23,7 @@ pipeline {
             steps {
                 // Install the required dependencies from requirements.txt
                 sh '''
-                    source venv/bin/activate
-                    pip install -r requirements.txt
+                  echo "Install the required dependencies from requirements.txt"
                 '''
             }
         }
@@ -34,7 +32,6 @@ pipeline {
             steps {
                 // Run the main Python script (replace with your script name)
                 sh '''
-                    source venv/bin/activate
                     python main.py
                 '''
             }
