@@ -32,7 +32,7 @@ pipeline {
             steps {
                 // Run the main Python script (replace with your script name)
                 sh '''
-                    python main.py
+                    python3 main.py
                 '''
             }
         }
