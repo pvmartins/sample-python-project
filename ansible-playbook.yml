@@ -1,0 +1,21 @@
+---
+- name: Update packages on Ubuntu
+  hosts: all
+  become: yes  # Elevates privileges to run commands as root
+  tasks:
+    - name: Update the apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600  # Update cache if older than one hour
+
+    - name: Upgrade all packages to the latest version
+      apt:
+        upgrade: dist  # Equivalent to 'apt-get dist-upgrade'
+
+    - name: Autoremove unnecessary packages
+      apt:
+        autoremove: yes
+
+    - name: Clean up the local repository of retrieved package files
+      apt:
+        autoclean: yes
